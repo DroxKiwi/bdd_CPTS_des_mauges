@@ -1,0 +1,47 @@
+# Use postgres/example user/password credentials
+version: '3.9'
+
+services:
+
+  dbcpts:
+    image: postgres
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    #volumes:
+    #  - type: tmpfs
+    #    target: /dev/shm
+    #    tmpfs:
+    #      size: 134217728 # 128*2^20 bytes = 128Mb
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=toor
+    ports:
+      - 5437:5432
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - cptsnet
+    container_name: dbcpts
+
+volumes:
+  db:
+    driver: local
+
+networks:
+  cptsnet:
+    driver: bridge
+    external: false
+    name: cptsnet
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
+    
+  #adminer:
+  #  image: adminer
+  #  restart: always
+  #  ports:
+  #    - 8080:8080
