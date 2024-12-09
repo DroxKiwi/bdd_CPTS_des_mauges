@@ -57,7 +57,24 @@ CREATE TABLE if NOT EXISTS prof (
     tecTimeInsert timestamp,
     actif boolean NOT NULL DEFAULT TRUE
 );
-    
+
+CREATE TABLE if NOT EXISTS patd (
+    patd_id serial PRIMARY KEY,
+    patf_ids varchar NOT NULL,
+    name varchar(255) UNIQUE NOT NULL,
+    img varchar,
+    actif boolean NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE if NOT EXISTS patf (
+    patf_id serial PRIMARY KEY,
+    name varchar(255),
+    subtitle varchar(255),
+    description varchar,
+    img varchar,
+    tecTimeInsert timestamp,
+    actif boolean NOT NULL DEFAULT TRUE
+);
 
 CREATE TABLE if NOT EXISTS pages (
     pages_id serial PRIMARY KEY,
