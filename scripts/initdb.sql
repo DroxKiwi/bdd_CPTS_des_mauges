@@ -82,4 +82,23 @@ CREATE TABLE if NOT EXISTS pages (
     url varchar(255) UNIQUE NOT NULL
 );
 
-INSERT INTO users (username, password, adminofurl) VALUES ('admin', '$2b$12$L.0gC.VQFMeBf1oGyMKNF.CrL2fqF88YKoghumqhMeBq0RD.oSY1e', 'cptsdesmauges.fr')
+CREATE TABLE IF NOT EXISTS globaldata(
+    globalData_id serial PRIMARY KEY,
+    tel varchar(14),
+    adr varchar(255),
+    postalcode varchar(5),
+    facebook varchar(255),
+    linkedin varchar(255),
+    chiffrepsl varchar(6),
+    chiffrecom varchar(6),
+    chiffrehab varchar(6)
+);
+
+CREATE TABLE IF NOT EXISTS coassos (
+    coassos_id serial PRIMARY KEY,
+    img varchar,
+    redirect_url varchar(255)
+);
+
+INSERT INTO users (username, password, adminofurl) VALUES ('admin', '$2b$12$L.0gC.VQFMeBf1oGyMKNF.CrL2fqF88YKoghumqhMeBq0RD.oSY1e', 'cptsdesmauges.fr');
+INSERT INTO globaldata (tel, adr, postalcode, facebook, linkedin, chiffrepsl, chiffrecom, chiffrehab) VALUES ('06', 'adresse', '49000', 'http', 'http', '0', '0', '0');
