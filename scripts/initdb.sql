@@ -91,7 +91,16 @@ CREATE TABLE IF NOT EXISTS globaldata(
     linkedin varchar(255),
     chiffrepsl varchar(6),
     chiffrecom varchar(6),
-    chiffrehab varchar(6)
+    chiffrehab varchar(6),
+    hommepageprjstext varchar,
+    quisommesnousmaintext varchar,
+    mail varchar(255)
+);
+
+CREATE TABLE IF NOT EXISTS livret_pages (
+    livret_pages_id serial PRIMARY KEY,
+    numero_page int,
+    img varchar
 );
 
 CREATE TABLE IF NOT EXISTS coassos (
@@ -101,4 +110,4 @@ CREATE TABLE IF NOT EXISTS coassos (
 );
 
 INSERT INTO users (username, password, adminofurl) VALUES ('admin', '$2b$12$L.0gC.VQFMeBf1oGyMKNF.CrL2fqF88YKoghumqhMeBq0RD.oSY1e', 'cptsdesmauges.fr');
-INSERT INTO globaldata (tel, adr, postalcode, facebook, linkedin, chiffrepsl, chiffrecom, chiffrehab) VALUES ('06', 'adresse', '49000', 'http', 'http', '0', '0', '0');
+INSERT INTO globaldata (tel, adr, postalcode, facebook, linkedin, chiffrepsl, chiffrecom, chiffrehab, hommepageprjstext, quisommesnousmaintext, mail) VALUES ('06', 'adresse', '49000', 'http', 'http', '0', '0', '0', '', '', 'cptsdesmauges@gmail.com');
