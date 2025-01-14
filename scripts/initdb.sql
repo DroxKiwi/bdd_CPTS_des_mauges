@@ -109,5 +109,13 @@ CREATE TABLE IF NOT EXISTS coassos (
     redirect_url varchar(255)
 );
 
+CREATE TABLE IF NOT EXISTS orga (
+    orga_id serial PRIMARY KEY,
+    name varchar(255),
+    img varchar,
+    role varchar(255),
+    description varchar(255)
+);
+
 INSERT INTO users (username, password, adminofurl) VALUES ('admin', '$2b$12$L.0gC.VQFMeBf1oGyMKNF.CrL2fqF88YKoghumqhMeBq0RD.oSY1e', 'cptsdesmauges.fr');
 INSERT INTO globaldata (tel, adr, postalcode, facebook, linkedin, chiffrepsl, chiffrecom, chiffrehab, hommepageprjstext, quisommesnousmaintext, mail) VALUES ('06', 'adresse', '49000', 'http', 'http', '0', '0', '0', '', '', 'cptsdesmauges@gmail.com');
